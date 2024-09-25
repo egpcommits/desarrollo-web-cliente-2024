@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PB12</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+</head>
+<body>
+    <script>
+        let array_nombres = ["Luis", "Estela", "Enya", "Ángel", "Jose Antonio"];
+        let array_final = [];
+        let i = 0, j = 0;
+
+        while (i < array_nombres.length) {
+            if (array_nombres[i].length == 4) {
+                array_final[j] = array_nombres[i];
+                j++;
+            }
+            i++;
+        }
+
+        console.log(array_final);
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+//Sin terminar
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PB09</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+
+        let numero = 0;
+        do {
+            numero = (parseInt(prompt("Introduce un número mayor a 2:")));
+        } while (numero <= 2);
+
+        let array = [[numero]];
+
+        /*for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array.length; j++) {
+                array[i][j] = i + j;
+            }
+        }*/array
+        let i = 0, j = 0;
+
+        while (i < array.length) {
+            j = 0;
+            while (j < array.length) {
+                array[i][j] = i + j;
+                j++;
+            }
+            i++;
+        }
+
+        console.log(array[[]]);
+    </script>
+</body>
+</html>
