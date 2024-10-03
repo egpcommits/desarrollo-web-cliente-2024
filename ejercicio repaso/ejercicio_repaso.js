@@ -23,7 +23,7 @@ function main () {
 
 
     //Creo una matriz N con numeros aleatorios entre N y N*2.
-    let matriz =[];
+    let matriz = [[]];
 
     while (i < tam) {
         matriz.push([]);
@@ -35,14 +35,22 @@ function main () {
         j = 0;
         while (j < tam) {
             matriz[i][j] = (Math.floor(Math.random() * ((tam * 2) - tam) + tam));
-            if (matriz[i][j] < 10) {
-                matriz[i][j] = `0${matriz[i][j]}`;
-            }
+            if (matriz[i][j] < 10) matriz[i][j] = `0${matriz[i][j]}`;
             j++;            
         }
-        console.log(matriz[i]);
+        console.log(matriz[i].join(' ')); //Para sacar los elementos de la matriz con espacios de por medio
         i++;        
     }
+
+    /*matriz.forEach((eleI, posI) => {
+        eleI.forEach((eleJ, posJ) => {
+            eleJ[posI][posJ] = (Math.floor(Math.random() * ((tam * 2) - tam) + tam));
+            if (eleJ[posI][posJ] < 10) {
+                eleJ[posI][posJ] = `0${eleJ[posI][posJ]}`;
+            }
+        });
+        console.log(matriz[posI].join(' '));
+    });*/
     
 
 
@@ -54,16 +62,65 @@ function main () {
     while (i < matriz.length) {
         j = 0;
         while (j < matriz.length) {
-            if (matriz[i][j] > mayor) {
-                mayor = matriz[i][j];
-            } else if (matriz[i][j] < menor) {
-                menor = matriz[i][j];
-            }
+            if (matriz[i][j] > mayor) mayor = matriz[i][j];
+            else if (matriz[i][j] < menor) menor = matriz[i][j];
             j++;
         }
         i++;        
     }
     console.log(`El mayor número es: ${mayor}`);
-    console.log(`El menor número es: ${menor}`);
+    //console.log(`El menor número es: ${menor}`);
+
+
+
+    //Sumar todos los elementos de la matriz y mostrar por pantalla.
+    let sumaTotal = 0;
+
+    matriz.forEach(elementoI => {
+        elementoI.forEach(elementoJ => { //elemento es un array, que se puede recorrer con foreach
+            sumaTotal += (Number(elementoJ));
+        });
+    });
+    console.log(`Suma total de los elementos de la matriz: ${sumaTotal}`);
+
+
+
+    //FIZZ-BUZZ
+    let nuevaMatriz = [
+        []
+    ];
+
+    i = 0, j = 0;
+
+    while (i < tam) {
+        nuevaMatriz.push([]);
+        i++;
+    }
+
+    i = 0;
+
+    while (i < matriz.length) {
+        j = 0;
+        while (j < matriz.length) {
+            if (matriz[i][j] % 3 == 0) nuevaMatriz[i][j] = "FIZZ";
+            else if (matriz[i][j] % 5 == 0) nuevaMatriz[i][j] = "BUZZ";
+            else if (matriz[i][j] % 15 == 0) nuevaMatriz[i][j] = "FIZZBUZZ";
+            else nuevaMatriz[i][j] = "    ";
+            j++;
+        }
+        console.log(nuevaMatriz[i]);
+        i++;
+    }
+
+    /*matriz.forEach((elementoI, posI) => {
+        elementoI.forEach((elementoJ, posJ) => {
+            if (elementoJ % 3 == 0) nuevaMatriz[posJ] = "FIZZ";
+            else if (elementoJ % 5 == 0) nuevaMatriz[posJ] = "BUZZ";
+            else if (elementoJ % 15 == 0) nuevaMatriz[posJ] = "FIZBUZZ";
+            else nuevaMatriz[posJ] = "NADA";
+        });
+        console.log(matriz[posI]);
+    });*/
+
     
 }
