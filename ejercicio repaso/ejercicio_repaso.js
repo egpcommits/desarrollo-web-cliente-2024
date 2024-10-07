@@ -102,9 +102,9 @@ function main () {
     while (i < matriz.length) {
         j = 0;
         while (j < matriz.length) {
-            if (matriz[i][j] % 3 == 0) nuevaMatriz[i][j] = "FIZZ";
+            if (matriz[i][j] % 15 == 0) nuevaMatriz[i][j] = "FIZZBUZZ";
             else if (matriz[i][j] % 5 == 0) nuevaMatriz[i][j] = "BUZZ";
-            else if (matriz[i][j] % 15 == 0) nuevaMatriz[i][j] = "FIZZBUZZ";
+            else if (matriz[i][j] % 3 == 0) nuevaMatriz[i][j] = "FIZZ";
             else nuevaMatriz[i][j] = "    ";
             j++;
         }
