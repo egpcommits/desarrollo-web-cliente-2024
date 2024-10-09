@@ -56,7 +56,7 @@ function main () {
 
     //Buscar el mayor número de la matriz y sacarlo por pantalla
     i = 0, j = 0;
-    let mayor = Number.MIN_VALUE;
+    let mayor = Number.MIN_VALUE; //tambien se puede usar -Infinity
     let menor = Number.MAX_VALUE;
 
     while (i < matriz.length) {
@@ -110,6 +110,15 @@ function main () {
         }
         console.log(nuevaMatriz[i]);
         i++;
+    }
+
+    for (fila of matriz) {
+        for (numero of fila) {
+            if (valor % 15 == 0) valor = "FIZZBUZZ";
+            else if (valor % 5 == 0) valor = "BUZZ";
+            else if (valor % 3 == 0) valor = "FIZZ";
+            else valor = "    ";
+        }
     }
 
     /*matriz.forEach((elementoI, posI) => {
