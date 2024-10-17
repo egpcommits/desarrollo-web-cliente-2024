@@ -1,12 +1,13 @@
 window.onload = function () {
+    let colores = ["pink", "orange", "palevioletred", "cyan"];
+    let i = 0;
     let celdas = document.getElementsByTagName("td");
     for (elemento of celdas) {
-        elemento.onclick = function () {
-            if (this.getAttribute("style") == "background-color: white;") {
-                this.style.backgroundColor = "black";
-            } else {
-                this.style.backgroundColor = "white"; 
-            }      
+        elemento.onclick = function () {            
+            /* if (this.bgColor == "white"  || this.bgColor == "") this.bgColor = "black";
+            else if (this.bgColor = "black") this.bgColor = "white"; */
+
+            
         }
     }
 
