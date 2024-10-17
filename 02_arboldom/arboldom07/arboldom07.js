@@ -6,8 +6,9 @@ window.onload = function () {
         elemento.onclick = function () {            
             /* if (this.bgColor == "white"  || this.bgColor == "") this.bgColor = "black";
             else if (this.bgColor = "black") this.bgColor = "white"; */
-
-            
+            if (i == (colores.length)) i = 0;
+            this.bgColor = colores[i];
+            i++;            
         }
     }
 
