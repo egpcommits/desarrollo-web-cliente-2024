@@ -1,54 +1,61 @@
-function mostrarTamanio () {
-    let alto = document.getElementsByTagName("table")[0];
-    console.log("Alto: " + alto.getAttribute("height"));
+window.onload = function () {
 
-    let ancho = document.getElementsByTagName("table")[0];
-    console.log("Ancho: " + ancho.getAttribute("width"));
+    let tabla = document.getElementsByTagName("table")[0];
 
-    //Nuevo alto:
-    let nuevoAlto = 0;
-    do {
-        nuevoAlto = (parseInt(prompt("Introduce nuevo alto: ")));
-    } while ((nuevoAlto < 0) || (isNaN(nuevoAlto)));
 
-    alto.setAttribute("height", nuevoAlto);
+    //Cambiar tamaño
+    let tamanio = document.getElementsByTagName("input")[0];
 
-    //Nuevo ancho:
-    let nuevoAncho = 0;
-    do {
-        nuevoAncho = (parseInt(prompt("Introduce nuevo ancho: ")));
-    } while ((nuevoAncho < 0) || (isNaN(nuevoAncho)));
+    tamanio.onclick = function () {
+        console.log("Alto: " + tabla.getAttribute("height"));
+        console.log("Ancho: " + tabla.getAttribute("width")); 
 
-    ancho.setAttribute("width", nuevoAncho);
+        //Nuevo alto:
+        let nuevoAlto = 0;
+        do {
+            nuevoAlto = (parseInt(prompt("Introduce nuevo alto: ")));
+        } while ((nuevoAlto < 0) || (isNaN(nuevoAlto)));
 
-    console.log("Nuevo alto: " + alto.getAttribute("height"));
-    console.log("Nuevo ancho: " + ancho.getAttribute("width"));
-}
+        tabla.setAttribute("height", nuevoAlto);
 
-function valorBorde () {
-    let borde = document.getElementsByTagName("table")[0];
-    console.log("Borde: " + borde.getAttribute("border"));
+        //Nuevo ancho:
+        let nuevoAncho = 0;
+        do {
+            nuevoAncho = (parseInt(prompt("Introduce nuevo ancho: ")));
+        } while ((nuevoAncho < 0) || (isNaN(nuevoAncho)));
 
-    let nuevoBorde = 0;
-    do {
-        nuevoBorde = (parseInt(prompt("Introduce nuevo borde: ")));
-    } while ((nuevoBorde < 0) || (isNaN(nuevoBorde)));
+        tabla.setAttribute("width", nuevoAncho);
 
-    borde.setAttribute("border", nuevoBorde);
-    
-    console.log("Nuevo borde: " + borde.getAttribute("border"));
-}
+        console.log("Nuevo alto: " + tabla.getAttribute("height"));
+        console.log("Nuevo ancho: " + tabla.getAttribute("width"));        
+    }
 
-let i = 0;
 
-function cambiarAlineacion () {
-    
+    //Cambiar borde
+    let borde = document.getElementsByTagName("input")[1];
+    borde.onclick = function () {
+        console.log(`Borde: ${tabla.getAttribute("border")}`);
+
+        let nuevoBorde = 0;
+        do {
+            nuevoBorde = (parseInt(prompt("Introduce nuevo borde: ")));
+        } while ((nuevoBorde < 0) || (isNaN(nuevoBorde)));
+
+        tabla.setAttribute("border", nuevoBorde);
+
+        console.log(`Nuevo border: ${tabla.getAttribute("border")}`);
+    }
+
+
+    //Cambiar alineacion
     let array = ["right", "left", "center"];
+    let i = 0;
 
-    let alineacion = document.getElementsByTagName("table")[0];
-    
-    alineacion.setAttribute("align", array[i]);
-    i++;
-    
-    if (i === 3) i = 0;
+    let alineacion = document.getElementsByTagName("input")[2];
+    alineacion.onclick = function () {
+        tabla.setAttribute("align", array[i]);
+        i++;
+
+        if (i === 3) i = 0;
+    }
 }
