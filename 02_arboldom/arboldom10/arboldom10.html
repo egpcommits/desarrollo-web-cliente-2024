@@ -5,7 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Árbol DOM 10</title>
     <script src="arboldom10.js"></script>
-    <link href="estilos.css" rel = "stylesheet">
+    <!--<link href="estilos.css" rel = "stylesheet">-->
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        div:first-child {
+            background-color: red;
+        }
+
+        div:nth-child(2) {
+            background-color: yellowgreen;
+        }
+
+        div:nth-child(3) {
+            background-color: cadetblue;
+        }
+    </style>
 </head>
 <body>
     <div id = "id1"></div>
