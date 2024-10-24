@@ -1,3 +1,5 @@
+let timer;
+
 window.onload = function () {
     let div = document.getElementsByTagName("div")[0];
     let i = 1;
@@ -8,11 +10,22 @@ window.onload = function () {
         i = 1;
     }
 
-    div.onmouseout = function () {
-        if ((5 * i) <= (screen.width - div.offsetWidth)) {
-            console.log("hola");
-            this.style.left = (5 * i) + "px";
-            i++;
-        }
+    let salto = 50;
+
+    div.onmouseenter = function () {
+        timer = setInterval(() => {
+            if ((salto* i) <= (screen.width - div.offsetWidth)) {
+                this.style.left = (salto * i) + "px";
+                i++;
+            }    
+            else{
+                this.style.left =  (screen.width - div.offsetWidth) + "px";
+            }        
+        }, 50);
     }
+
+    div.onmouseleave = function () {
+        clearInterval(timer);
+    }
+    
 }
