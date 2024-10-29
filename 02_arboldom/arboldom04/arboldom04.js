@@ -1,37 +1,43 @@
+let fotos = ["byakuya.jpg", "gintoki.jpg", "giorno.jpg", "gojo.jpg", "kakashi.jpg", "rengoku.jpg", "roy.jpg", "zoro.jpg"];
+let timer;
+
 window.onload = function () {
-    let imagen = document.getElementsByTagName("img")[0];
+    let imagenes = document.getElementsByTagName("img")[0];
     let i = 0;
 
-    let retroceder = document.getElementsByTagName("input")[0];
-    retroceder.onclick = function () {
-        i--;
+        //retroceder
+        document.getElementsByTagName("input")[0].onclick = function () {
+            if (i > 0) {
+                i--;
+                imagenes.setAttribute("src", "imagenes/" + fotos[i]);
+            }
+        }
 
-        if (i < 0) i = 0;
-    
-        if (i == 0) imagen.setAttribute("src", "imagenes/byakuya.jpg");
-        else if (i == 1) imagen.setAttribute("src", "imagenes/gintoki.jpg");
-        else if (i == 2) imagen.setAttribute("src", "imagenes/giorno.jpg");
-        else if (i == 3) imagen.setAttribute("src", "imagenes/gojo.jpg");
-        else if (i == 4) imagen.setAttribute("src", "imagenes/kakashi.jpg");
-        else if (i == 5) imagen.setAttribute("src", "imagenes/rengoku.jpg");
-        else if (i == 6) imagen.setAttribute("src", "imagenes/roy.jpg");
-        else if (i == 7) imagen.setAttribute("src", "imagenes/zoro.jpg");
-    }
+        //avanzar
+        document.getElementsByTagName("input")[1].onclick = function () {
+            if (i < fotos.length - 1) {
+                i++;
+                imagenes.setAttribute("src", "imagenes/" + fotos[i]);
+            }
+        }
 
+        //añadir
+        document.getElementsByTagName("input")[2].onclick = function () {
+            fotos.push("asahi.jpg");
+        }
 
-    let avanzar = document.getElementsByTagName("input")[1];
-    avanzar.onclick = function () {
-        i++;
+        //automatico
+        let j = 0;
+        document.getElementsByTagName("input")[3].onclick = function () {
+            timer = setInterval(() => {
+                if (j == fotos.length) j = 0;
+                imagenes.setAttribute("src", "imagenes/" + fotos[j]);
+                j++;
+            }, 1000);
+        }
 
-        if (i > 7) i = 7;
-
-        if (i == 0) imagen.setAttribute("src", "imagenes/byakuya.jpg");
-        else if (i == 1) imagen.setAttribute("src", "imagenes/gintoki.jpg");
-        else if (i == 2) imagen.setAttribute("src", "imagenes/giorno.jpg");
-        else if (i == 3) imagen.setAttribute("src", "imagenes/gojo.jpg");
-        else if (i == 4) imagen.setAttribute("src", "imagenes/kakashi.jpg");
-        else if (i == 5) imagen.setAttribute("src", "imagenes/rengoku.jpg");
-        else if (i == 6) imagen.setAttribute("src", "imagenes/roy.jpg");
-        else if (i == 7) imagen.setAttribute("src", "imagenes/zoro.jpg");
-    }
+        //parar
+        document.getElementsByTagName("input") [4].onclick = function () {
+            clearInterval(timer);
+        }
 }
