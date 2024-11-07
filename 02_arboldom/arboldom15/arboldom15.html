@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arbol DOM 15</title>
+    <script src="arboldom15.js"></script>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        .item__submenu {
+            display: none;
+        }
+
+        .body__list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    </style>
+</head>
+<body>
+    <ul class="body__list">
+        <li class="list__item">Inicio
+            <ul class="item__submenu">
+                <li class="submenu__item">Portada</li>
+                <li class="submenu__item">Acerca de mi</li>
+                <li class="submenu__item">Mis fotos</li>
+            </ul>
+        </li>
+        <li class="list__item">Proyectos
+            <ul class="item__submenu">
+                <li class="submenu__item">Web apps</li>
+                <li class="submenu__item">Mobile apps</li>
+                <li class="submenu__item">Juegos</li>
+            </ul>
+        </li>
+        <li class="list__item">Portafolio
+            <ul class="item__submenu">
+                <li class="submenu__item">Páginas webs</li>
+                <li class="submenu__item">Software</li>
+            </ul>
+        </li>
+        <li class="list__item">Contacto</li>
+    </ul>
+    <p>Este párrafo no tiene que moverse</p>
+</body>
+</html>
