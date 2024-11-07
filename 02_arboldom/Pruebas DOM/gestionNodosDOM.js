@@ -38,15 +38,22 @@ window.onload = () => {
 
     function borrar () {
         let papi = document.querySelector("section");
-        let victimas = document.querySelectorAll("section div");
+        let victimas = document.querySelectorAll("section div"); //devuelve una lista de nodos
+        //si usasemos el get... o el .children petaria el bucle de abajo, ya que devuelve una estructura html coleccion.
+        //Con el queryselector ES LA FORMA MAS SEGURA
 
         //el padre puede dar lista de hijos
         let masVictimas = papi.children;
 
-        for (let i = 0; i < victimas.length; i++) {
+        /*for (let i = 0; i < victimas.length; i++) {
             //let papi = victimas[i].parentNode; //Se puede usr el parent node si no sabemos el padre del hijo
             //papi.removeChild(victimas[i]);
             victimas[i].parentNode.removeChild(victimas[i]);
+        }*/
+
+        //formas de que no de probllemas al borrar:
+        while (papi.firstChild) { //Mientras el padre tenga hijos, los va borrando. Cuando se acaben, para el bucle.
+            papi.removeChild(papi.firstChild);
         }
     }
 }
