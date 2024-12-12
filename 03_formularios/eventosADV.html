@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos ADV</title>
+
+    <style>
+        section {
+            margin: 0 auto;
+            width: 25%;
+            height: 300px;
+            padding: 2%;
+            background-color:darkgreen;
+        }
+        div {
+            margin: 0 auto;
+            width: 75%;
+            height: 200px;
+            padding: 2%;
+            background-color: darkkhaki;
+        }
+
+        p {
+            margin: 0 auto;
+            width: 75%;
+            height: 100px;;
+            padding: 2%;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <section>   
+        <div>
+            <p>
+                haz click aqui
+            </p>
+        </div>
+    </section>
+
+    <input type="button" value="QUITAR">
+    
+</body>
+</html>
+
+<script>
+    let abuelo = document.querySelector("section");
+    let padre = document.querySelector("div");
+    let hijo = document.querySelector("p");
+
+    //Con onclick
+    /*abuelo.onclick = function () {
+        alert("Soy el abuelo");
+    }
+
+    padre.onclick = function () {
+        alert("Soy el padre");
+    }
+
+    hijo.onclick = function () {
+        alert("Soy el hijo");
+    }*/
+
+
+    //Con addeventlistener
+    /*abuelo.addEventListener("click", function () {
+        alert("Soy el abuelo SECTION");
+    });
+
+    padre.addEventListener("click", function () {
+        alert("Soy el padre DIV");
+    }, true);
+
+    hijo.addEventListener("click", function () {
+        alert("Soy el hijo P");
+    }, true);*/
+
+
+    //Se machacan los valores
+    /*hijo.onclick = function () {
+        alert("Soy el hijo primero");
+    }
+
+    hijo.onclick = function () {
+        alert("Soy el hijo segundo");
+    }
+
+    hijo.onclick = function () {
+        alert("Soy el hijo tercero");
+    }*/
+
+
+    //adv al mismo elemento
+    /*hijo.addEventListener("click", function () {
+        alert("Soy el hijo primero");
+    });
+
+    hijo.addEventListener("click", function () {
+        alert("Soy el hijo segundo");
+    }, true);
+
+    hijo.addEventListener("click", function () {
+        alert("Soy el hijo tercero");
+    }, true);*/
+
+
+    //Borrando eventlistener
+
+    function antinolo () {
+        alert("Soy el primero");
+    }
+
+    hijo.addEventListener("click", antinolo);
+
+    let boton = document.querySelector("input[type='button']");
+
+    boton.onclick = function () {
+        alert("borrando evento de hijo");
+        hijo.removeEventListener("click", antinolo);
+    }
+
+
+</script>
