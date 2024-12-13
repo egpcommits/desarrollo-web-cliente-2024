@@ -9,11 +9,10 @@ window.onload = () => {
         let checkbox = document.querySelectorAll("input[type='checkbox']")[i];
         //Cuando encuentra el checkbox por el que va, realiza el evento en ese
         checkbox.addEventListener("click", () => {
-            if (checkbox.checked) {
-                contenido.value += checkbox.value + " ";
-                i = longitud;
-            }            
-        }, false);
+            if (checkbox.checked) contenido.value += checkbox.value + " ";
+            else contenido.value = contenido.value.replace(checkbox.value + " ", "");
+            i = longitud;
+        }, false);        
         i++;
     }
 }

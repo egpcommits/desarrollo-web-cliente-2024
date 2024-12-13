@@ -1,10 +1,10 @@
 
 window.onload = () => {
     let formulario = document.forms[0];
+    let campo1 = formulario["campo1"];
+    let campo2 = formulario["campo2"];
     
-    formulario.elements[0].onkeydown = () => {
-        console.log(formulario.elements[0].value);
-        formulario.elements[1].value = formulario.elements[0].value;
-    }
-    
+    campo1.addEventListener("keypress", (ev) => {
+        campo2.value += ev.key;
+    }, false);
 }
