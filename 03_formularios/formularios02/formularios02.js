@@ -4,7 +4,7 @@ window.onload = () => {
     let campo1 = formulario["campo1"];
     let campo2 = formulario["campo2"];
     
-    campo1.addEventListener("keypress", (ev) => {
-        campo2.value += ev.key;
+    campo1.addEventListener("input", () => {
+        campo2.value = campo1.value;
     }, false);
 }
