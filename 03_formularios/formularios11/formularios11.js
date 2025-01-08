@@ -3,12 +3,22 @@ window.onload = () => {
     let resetear = formulario["resetear"];
     let enviar = formulario["enviar"];
 
+    
+
     resetear.addEventListener("click", (ev) => {
-        ev.preventDefault();
+        /*tmpDni.value = "";
+        tmpNombre.value = "";
+        tmpApellidos.value = "";
+        tmpFecha.value = "";
+        tmpWeb.value = "";
+        tmpContrasena.value = "";*/
+
+        formulario.reset(); //resetea el formulario
+
     }, false);
 
     enviar.addEventListener("click", (ev) => {
-        //ev.preventDefault();
+        ev.preventDefault();        
         let tmpDni = formulario["dni"];
         let tmpNombre = formulario["nombre"];
         let tmpApellidos = formulario["apellidos"];
@@ -22,33 +32,22 @@ window.onload = () => {
         if ((tmpDni.value != "") && (tmpDni.value.length == 9)) {
             let numeros = tmpDni.value.substr(0,8); //empieza en el 0, y va a coger 8 caracteres a partir de ahi (asi cojo solo los 8 primeros caracteres, que son los numeros)
             let letra = tmpDni.value.substr(8,1); //empieza en el 8, y solo va a coger un caracter a partir de ahi (cojo la letra)
-            let arrayNumeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-            let arrayLetras = ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z"]; //I, Ñ, O y U no estan
-            let i = 0, j = 0, k = 0;
+            let i = 0;
 
-            //console.log(numeros);
-            //console.log(letra);
-            
-            while (i < numeros.length) {
-                while (j < arrayNumeros.length) {
-                    if (numeros[i] != arrayNumeros[j]) {
-                        alert("Los 8 primeros caracteres solo pueden ser números.");
-                        i = numeros.length;
-                        j = arrayNumeros.length;
-                        tmpDni.value = "";
-                    }
-                    j++;
+            while (i < numeros.length) {                
+                if (!(numeros[i] >= 1 && numeros[i] <= 9)) {
+                    alert("Los 8 primeros caracteres solo pueden ser números.");
+                    i = numeros.length;
+                    tmpDni.value = "";
                 }
                 i++;
             }
-
-            while (k < arrayLetras.length) {
-                if (letra != arrayLetras[k]) {
-                    alert("El último caracter solo puede ser una letra mayuscula (excepto I, Ñ, O y U).");
-                    k = arrayLetras.length;
-                }
-                k++;
+            
+            if ((letra < "A" || letra > "Z")) {
+                alert("El último caracter solo puede ser una letra mayuscula.");
             }
+
+            dni = numeros + letra;
         } else {
             alert("El DNI es obligatorio y está compuesto por 9 caracteres.");
             tmpDni.value = "";
@@ -137,17 +136,18 @@ window.onload = () => {
         }
 
         //Contraseña
-        if (tmpContrasena.value.length >= 8 && tmpContrasena.value.length <= 12) {
+        if (tmpContrasena.value.length >= 8 && tmpContrasena.value.length <= 12 && tmpContrasena.value != "") {
             contrasena = tmpContrasena;
         } else {
             alert("La contraseña es obligatoria y tiene que tener entre 8 y 12 caracteres.");
             tmpContrasena.value = "";
+            tmpContrasena.focus();
         }
 
         //Verificar que este todo
-        /*if (dni && nombre && apellidos && fechaNacimiento && webPersonal && contrasena) {
-            alert("a tope con la cope");
-        }*/
+        if (dni && nombre && apellidos && fechaNacimiento && webPersonal && contrasena) {
+            window.location.href = "correcto.html"; //redirecciona (en este caso) a la ruta que se indique
+        }
     }, false);
 
 }
