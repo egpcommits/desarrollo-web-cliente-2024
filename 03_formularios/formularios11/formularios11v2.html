@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios 11v2</title>
+    <script src="formularios11v2.js"></script>
+    <style>
+        .error {
+            color: red;
+            font-style: italic;
+        }
+
+        .acierto {
+            color: green;
+            /* font-style: italic; */
+        }
+    </style>
+</head>
+<body>
+    <form action="correcto.html" method="post">
+        <div name="divDni">
+            <label>DNI</label>
+            <input type="text" name="dni">
+        </div>
+        <br><br>
+        <div name="divNombre">
+            <label>Nombre</label>
+            <input type="text" name="nombre">
+        </div>
+        <br><br>
+        <div name="divApellidos">
+            <label>Apellidos</label>
+            <input type="text" name="apellidos">
+        </div>
+        <br><br>
+        <div name="divFecha">
+            <label>Fecha de nacimiento</label>
+            <input type="text" name="fechaNacimiento">
+        </div>
+        <br><br>
+        <div name="divWeb">
+            <label>Web personal</label>
+            <input type="text" name="webPersonal">
+        </div>        
+        <br><br>
+        <div name="divContrasena">
+            <label>Contraseña</label>
+            <input type="password" name="contrasena">
+        </div>        
+        <br><br>
+        <input type="button" value="Resetear" name="resetear">
+        <input type="button" value="Enviar" name="enviar">
+    </form>
+</body>
+</html>

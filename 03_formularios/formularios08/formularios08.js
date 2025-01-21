@@ -9,7 +9,7 @@ window.onload = () => {
         let radio = document.querySelectorAll("input[type='radio']")[i];
         radio.addEventListener("click", () => {
             let div = document.getElementById("vi");            
-            
+
             if (radio.checked) {
                 let nuevoColor = radio.value;
                 div.setAttribute("style", `width: 100%; height: 200px; background-color: ${nuevoColor}`);
