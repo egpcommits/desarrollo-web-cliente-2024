@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web storage 04</title>
+    <script src="webstorage04.js"></script>
+</head>
+<body>    
+    <form action="" method="">
+        <input type="text" name="usuario" placeholder="Usuario">
+        <input type="password" name="contrasena" placeholder="Contraseña">
+        <input type="submit" value="Enviar" name="enviar">
+        <input type="reset" value="Borrar" name="borrar">
+    </form>
+
+    <script>
+        if (localStorage.getItem("persona") != null) { //si se ha almacenado ningun objeto en el localStorage
+            let formulario = document.forms[0];
+            let usuario = formulario["usuario"];
+            let contrasena = formulario["contrasena"];            
+
+            let valores = localStorage.getItem("persona");
+
+            let datos = JSON.parse(valores)
+            
+            for(dato in datos) {
+                if (dato == "iuser") {
+                    usuario.value = datos[dato];
+                } else if (dato == "pass") {
+                    contrasena.value = datos[dato];
+                } 
+            }
+        }
+    </script>
+</body>
+</html>
