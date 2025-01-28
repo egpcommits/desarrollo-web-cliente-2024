@@ -157,7 +157,7 @@ window.onload = () => {
             array_notas.push(Math.floor(Math.random() * (10 - 0 + 1) ) + 0);
         }
     }
-    console.log(alumno.mostrar());
+    //console.log(alumno.mostrar());
 
     //EJERCICIO 4
     //MOSTRANDO TUTOR
