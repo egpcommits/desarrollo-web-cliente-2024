@@ -17,7 +17,17 @@ window.onload = () => {
     padre.appendChild(texto);
 
 
-    //Pasar todo al local storage  convi
+    //evento con el que detectar que libro se selecciona, ese subirlo al local sotrage y redireccionar a mostrar.html
+    let longitud = document.getElementsByTagName("article").length;
+    let i = 0;
+
+    while (i < longitud) {
+        let presentacion = document.getElementsByTagName("article")[i];        
+        presentacion.addEventListener("click", function () {            
+            console.log(i);            
+        }, false);
+        i++;
+    }
 }
 
 function mostrar (titulo, imagen) {
