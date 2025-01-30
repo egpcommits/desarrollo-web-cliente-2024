@@ -24,7 +24,7 @@ window.onload = () => {
     while (i < longitud) {
         let presentacion = document.getElementsByTagName("article")[i];        
         presentacion.addEventListener("click", function () {            
-            console.log(i);            
+            console.log(this);            
         }, false);
         i++;
     }
