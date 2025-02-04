@@ -1,8 +1,15 @@
 window.onload = () => {
+    //para que no se cree cada vez que se cargue la pagina
+    //si en el localstorage no existe biblioteca, se crea, sino sigue palante como los de alicante
+    if (localStorage.getItem("biblioteca") == null) {
+        localStorage.setItem("biblioteca", JSON.stringify(library));
+    }    
+
     let numLibros = 0; //va a guardar el numero de libros
 
+    var nuevaBiblio = JSON.parse(localStorage.getItem("biblioteca"));
 
-    for(libros of library) {
+    for(libros of nuevaBiblio) {
         numLibros++; //numero de objetos que tiene el array
         for (libro in libros) {
             if (libro == "title") { //para que solo salga una vez. Sin el if se repite X veces (el numero de propiedades del objeto)
@@ -23,8 +30,15 @@ window.onload = () => {
 
     while (i < longitud) {
         let presentacion = document.getElementsByTagName("article")[i];        
-        presentacion.addEventListener("click", function () {            
-            console.log(this);            
+        presentacion.addEventListener("click", function () {     
+            for(libros of library) {
+                for (libro in libros) {                    
+                    if (libro == "title" && libros[libro] == this.innerText) { //necesito que el titulo del objeto y el que se selecciona sea el mismo
+                        localStorage.setItem("librillo", JSON.stringify(libros)); //se pasa a string y se puede subir al local storage
+                        window.location.href = "mostrar.html";
+                    } 
+                }
+            }           
         }, false);
         i++;
     }
