@@ -1,8 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+ document.addEventListener("DOMContentLoaded", () => {
     let id = localStorage.getItem("id");
     let padre = document.getElementsByTagName("section")[0];
-
-    let contador = 0;
 
     const url = "https://dragonball-api.com/api/characters/" + id;
 
@@ -34,36 +32,25 @@ document.addEventListener("DOMContentLoaded", () => {
 //justo debajo su descripcion, y al lado de esta la imagen
 
     function sacarDatos (dato, elemento) {
-        let element = document.createElement(elemento);
-        let fila = document.createElement("div");
-        let col1 = document.createElement("div");
-        col1.setAttribute("class", "col");
-        let col2 = document.createElement("div");
-        col2.setAttribute("class", "col");
+        let padre = document.getElementsByTagName("section")[0];
+        let infoPrincipal = document.getElementById("info-principal");
+        
 
-        if (elemento == "h1") {
-            element.appendChild(document.createTextNode(dato));
-            padre.appendChild(element);
-        } else if (elemento == "p") {
-            element.appendChild(document.createTextNode(dato));
-            col1.appendChild(element);
-            contador++;
-        } else {
-            element.setAttribute("src", dato);
-            col2.appendChild(element);
-            contador++;
+        switch (elemento) {
+            case "h1":
+                let nombre = document.createElement("h1");
+                nombre.appendChild(document.createTextNode(dato));
+                padre.insertBefore(nombre, infoPrincipal)
+                break;        
+            case "p":
+                let descripcion = document.createElement("p");
+                descripcion.appendChild(document.createTextNode(dato));
+                infoPrincipal.appendChild(descripcion);
+                break;
+            case "img":
+                let imagen = document.createElement("img");
+                imagen.setAttribute("src", dato);
+                infoPrincipal.appendChild(imagen);
         }
-
-
-        if (contador == 2) {
-            fila.setAttribute("class", "row");
-            fila.appendChild(col1);
-            fila.appendChild(col2);
-            padre.appendChild(fila);
-        } 
-
-        
-        
-        
     }
 });
