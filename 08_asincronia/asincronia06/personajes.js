@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let padre = document.querySelector("section");
 
     let titulo = document.createElement("h1");
-    titulo.setAttribute("class", "mb-5")
     titulo.appendChild(document.createTextNode("Personajes de Dragon Ball"));
-    padre.appendChild(titulo);
+    document.body.appendChild(titulo);
+    document.body.insertBefore(titulo, padre);
 
     fetch(url)
     //Capturo la respuesta
@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     //Capturo y gestiono los datos
     .then((datos) => {
+        
+
+
         for(let dato of datos["items"]) {
             sacarPersonajes(dato);
         }
@@ -49,14 +52,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function sacarPersonajes (dato) {        
         let article = document.createElement("article");
-        article.setAttribute("class", "col-2 ms-4 mt-3 mb-3");
 
         let nombre = document.createElement("h3");
         nombre.appendChild(document.createTextNode(dato["name"]));
 
         let imagen = document.createElement("img");
         imagen.setAttribute("src", dato["image"]);
-        imagen.setAttribute("class", "personajes");
 
         let raza = document.createElement("p");
         raza.appendChild(document.createTextNode(`Raza: ${dato["race"]}`));
